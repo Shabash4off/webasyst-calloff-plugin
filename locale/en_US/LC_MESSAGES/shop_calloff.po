@@ -1,0 +1,206 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: calloff\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: en_US\n"
+
+# General
+msgid "title"
+msgstr "Without call"
+
+msgid "devs"
+msgstr "Developer"
+
+# Menu
+msgid "menu.help"
+msgstr "Support"
+
+msgid "menu.feedback"
+msgstr "Give feedback"
+
+# Settings
+msgid "setting.plugin_active"
+msgstr "Status plugin"
+
+msgid "setting.active"
+msgstr "Status"
+
+msgid "setting.default_value"
+msgstr "Default value"
+
+msgid "setting.default_value.output"
+msgstr "Yes,No"
+
+msgid "setting.display_step"
+msgstr "Display a form in a step"
+
+msgid "setting.display_step.output"
+msgstr "Contact info,Confirmation"
+
+msgid "setting.form_type"
+msgstr "Form type"
+
+msgid "setting.form_template"
+msgstr "Form tamplate"
+
+msgid "setting.form_template.radio"
+msgstr "Radio"
+
+msgid "setting.form_template.checkbox"
+msgstr "Checkbox"
+
+msgid "setting.description"
+msgstr "Description"
+
+msgid "setting.yes_option"
+msgstr "\"Yes\" option"
+
+msgid "setting.no_option"
+msgstr "\"No\" option"
+
+msgid "setting.storefront_selector"
+msgstr "Storefront"
+
+msgid "setting.storefront_selector.general"
+msgstr "General settings for all storefronts"
+
+msgid "setting.details"
+msgstr "Details"
+
+msgid "setting.template"
+msgstr "Template"
+
+# Title
+msgid "title.active"
+msgstr "Enable the plugin to work."
+
+msgid "title.storefront_selector"
+msgstr "Select a storefront to customize. If General settings is selected, the selected settings will be applied to all storefronts."
+
+msgid "title.storefront_active"
+msgstr "Enable the plugin to work in the selected storefront."
+
+msgid "title.default_value"
+msgstr "The value that will be set when the form is loaded."
+
+msgid "title.display_step"
+msgstr "The stage of ordering, where the form will be displayed."
+
+msgid "title.description"
+msgstr "Text displayed in front of the form."
+
+msgid "title.yes_option"
+msgstr "Positive option text."
+
+msgid "title.no_option"
+msgstr "Negative option text."
+
+msgid "title.form_template"
+msgstr "Form functional part template."
+
+msgid "title.frontend.template"
+msgstr "General form template."
+
+msgid "title.details"
+msgstr "Message text."
+
+msgid "title.backend.template"
+msgstr "Backend message template."
+
+# Other
+msgid "option"
+msgstr "User selected option."
+
+# Tabs
+msgid "tab.display"
+msgstr "Display"
+
+msgid "tab.appearance.frontend"
+msgstr "Appearance - Frontend"
+
+msgid "tab.appearance.backend"
+msgstr "Appearance - Backend"
+
+# Dynamic Appearance
+msgid "da.background"
+msgstr "Background"
+
+msgid "da.text"
+msgstr "Text"
+
+msgid "da.border"
+msgstr "Borders"
+
+msgid "da.border.solid"
+msgstr "Solid"
+
+msgid "da.border.dotted"
+msgstr "Dotted"
+
+msgid "da.border.dashed"
+msgstr "Dashed"
+
+msgid "da.border_width"
+msgstr "Width"
+
+msgid "da.border_radius"
+msgstr "Rounding"
+
+msgid "da.lists"
+msgstr "Lists"
+
+msgid "da.lists.none"
+msgstr "None"
+
+msgid "da.lists.disc"
+msgstr "Disc"
+
+msgid "da.lists.circle"
+msgstr "Circle"
+
+msgid "da.lists.square"
+msgstr "Square"
+
+msgid "da.lists.decimal"
+msgstr "Decimal"
+
+msgid "da.margins"
+msgstr "Margins"
+
+msgid "da.paddings"
+msgstr "Paddings"
+
+msgid "da.scale"
+msgstr "Scale"
+
+msgid "da.scale_box-sizing"
+msgstr "Block-model"
+
+msgid "da.width"
+msgstr "Width"
+
+msgid "da.color"
+msgstr "Color"
+
+msgid "da.type"
+msgstr "Type"
+
+msgid "da.top"
+msgstr "Top"
+
+msgid "da.right"
+msgstr "Right"
+
+msgid "da.bottom"
+msgstr "Bottom"
+
+msgid "da.left"
+msgstr "Left"

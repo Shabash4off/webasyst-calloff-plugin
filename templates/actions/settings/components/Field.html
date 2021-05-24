@@ -1,0 +1,53 @@
+<div class="field">
+    <div class="name">
+        {$label}
+        <span title="{$title}">[?]</span>
+    </div>
+
+    <div class="value">
+        {if $type === 'switcher'}
+            <input 
+            type="hidden" 
+            name="{$name_prefix}{$name}"
+            value="false">
+
+            <input 
+            data-type="{$type}"
+            type="checkbox"
+            name="{$name_prefix}{$name}" 
+            value="true"
+            {if $value == 'true'} {'checked'} {/if}>
+        {elseif $type === 'redactor'}
+            <textarea 
+            class="redactor"
+            name="{$name_prefix}{$name}"
+            >{$value|escape:'html'}</textarea>
+        {elseif $type === 'text'}
+            <input 
+            type="text" 
+            name="{$name_prefix}{$name}"
+            value="{$value|escape:'html'}">
+        {elseif $type === 'select'}
+            <select name="{$name_prefix}{$name}">
+                {html_options values=$option_values output=$options_outputs selected=$value}
+            </select>
+        {elseif $type === 'editor'}
+            <textarea class="editor" data-mode="{$mode}" name="{$name_prefix}{$name}">{$value|escape:"html"}</textarea>
+        {/if}
+    </div>
+
+    {if !empty($variables)}
+        <div class="value">
+            <div class="block">
+                <a href="#" class="inline-link" data-spoiler-trigger="{$id}">
+                    <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
+                    <b><i>Переменные окружения</i></b>
+                </a>
+                
+                <div data-spoiler-content="{$id}">
+                    {include file="../blocks/variables/`$variables`"}
+                </div>
+            </div>
+        </div>
+    {/if}
+</div>

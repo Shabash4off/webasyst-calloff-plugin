@@ -1,0 +1,151 @@
+<div data-block="dynamic-appearance" data-id="{$storefrontId}-{$da_key}">
+
+    <input type="hidden" name="{$app_id}_{$plugin_id}{$storefrontName}[{$da_key}][da_jss]" data-dynamic-appearance-storage value="{$storefrontSettings[{$da_key}]["da_jss"]|escape:'html'}">
+    <input type="hidden" name="{$app_id}_{$plugin_id}{$storefrontName}[{$da_key}][da_css]" data-dynamic-appearance-dist value="{$storefrontSettings[{$da_key}]["da_css"]|escape:'html'}">
+
+    <div class="dynamic-appearance-fields">
+        <h3>[`da.background`]</h3>
+        <ul>
+            <li>
+                <span>[`da.color`]: </span>
+                <input type="color" data-dynamic-appearance data-selector=".calloff_plugin" data-property="background-color" value="#FFFFFF">
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.text`]</h3>
+        <ul>
+            <li>
+                <span>[`da.color`]: </span>
+                <input type="color" data-dynamic-appearance data-selector=".calloff_plugin" data-property="color" value="#000000">
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.border`]</h3>
+        <ul>
+            <li>
+                <span>[`da.color`]: </span>
+                <input type="color" data-dynamic-appearance data-selector=".calloff_plugin" data-property="border-color" value="#FFFFFF">
+            </li>
+
+            <li>
+                <span>[`da.border_width`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="border-width" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.type`]: </span>
+                <select data-dynamic-appearance data-selector=".calloff_plugin" data-property="border-style">
+                    <option value="solid" selected>[`da.border.solid`]</option>
+                    <option value="dotted">[`da.border.dotted`]</option>
+                    <option value="dashed">[`da.border.dashed`]</option>
+                </select>
+            </li>
+
+            <li>
+                <span>[`da.border_radius`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="border-radius" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.lists`]</h3>
+        <ul>
+            <li>
+                <span>[`da.type`]: </span>
+                <select data-dynamic-appearance data-selector=".calloff_plugin ul li" data-property="list-style-type">
+                    <option value="none" selected>[`da.lists.none`]</option>
+                    <option value="disc">[`da.lists.disc`]</option>
+                    <option value="circle">[`da.lists.circle`]</option>
+                    <option value="square">[`da.lists.square`]</option>
+                    <option value="decimal">[`da.lists.decimal`]</option>
+                </select>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.margins`]</h3>
+        <ul>
+            <li>
+                <span>[`da.top`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="margin-top" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.right`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="margin-right" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.bottom`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="margin-bottom" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.left`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="margin-left" data-postfix="px" value="0">
+                <span>px</span>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.paddings`]</h3>
+        <ul>
+            <li>
+                <span>[`da.top`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="padding-top" data-postfix="px" value="16">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.right`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="padding-right" data-postfix="px" value="16">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.bottom`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="padding-bottom" data-postfix="px" value="16">
+                <span>px</span>
+            </li>
+
+            <li>
+                <span>[`da.left`]: </span>
+                <input type="number" data-dynamic-appearance data-selector=".calloff_plugin" data-property="padding-left" data-postfix="px" value="16">
+                <span>px</span>
+            </li>
+        </ul>
+        <hr>
+
+        <h3>[`da.scale`]</h3>
+        <ul>
+            <li>
+                <span>[`da.width`]: </span>
+                <select data-dynamic-appearance data-selector=".calloff_plugin" data-property="width">
+                    <option value="25%">25%</option>
+                    <option value="50%">50%</option>
+                    <option value="75%">75%</option>
+                    <option value="100%" selected>100%</option>
+                </select>
+            </li>
+
+            <li>
+                <span>[`da.scale_box-sizing`]: </span>
+                <select data-dynamic-appearance data-selector=".calloff_plugin" data-property="box-sizing">
+                    <option value="border-box" selected>border-box</option>
+                    <option value="content-box">content-box</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+
+    <div data-dynamic-appearance-template="{$storefrontId}-{$da_key}">
+        {include file="./templates/`$da_template`.html"}
+    </div>
+</div>

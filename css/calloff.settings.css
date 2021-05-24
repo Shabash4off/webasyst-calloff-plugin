@@ -1,0 +1,100 @@
+#calloff .fields {
+    width: 100%;
+}
+
+#calloff .field {
+    margin-bottom: 15px;
+}
+
+#calloff .field input[type="text"], 
+#calloff .field input[type="number"], 
+#calloff .field select {
+    padding: 5px;
+}
+
+#calloff .field input[type="color"] {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+}
+
+#calloff .field input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+#calloff .field input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+
+#calloff .field .redactor-box {
+    max-width: 800px;
+}
+
+#calloff [data-block="tabs"] {
+    margin-top: 30px;
+}
+
+#calloff [data-tab-content] {
+    padding: 20px 0;
+}
+
+#calloff [data-block="dynamic-appearance"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 1600px;
+    height: 400px;
+}
+
+#calloff [data-block="dynamic-appearance"] .dynamic-appearance-fields {
+    width: 400px;
+    padding: 20px;
+    overflow: auto;
+    border: 1px solid #c0c0c0;
+}
+
+#calloff [data-block="dynamic-appearance"] .dynamic-appearance-fields ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 5px;
+}
+
+#calloff [data-block="dynamic-appearance"] .dynamic-appearance-fields ul li {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#calloff [data-block="dynamic-appearance"] .dynamic-appearance-fields ul li input,
+#calloff [data-block="dynamic-appearance"] .dynamic-appearance-fields ul li select {
+    margin: 0 10px;
+}
+
+#calloff [data-block="dynamic-appearance"] [data-dynamic-appearance-template] {
+    width: 800px;
+    padding: 16px;
+    border: 1px dashed #c0c0c0;
+}
+
+#calloff .alert_info {
+    margin-bottom: 20px;
+    border-left: 6px solid #2f55d4;
+    color: #8492a6;
+    background-color: #f8f9fc;
+    padding: 10px 15px;
+    max-width: 844px;
+}
+
+#calloff .alert_warn {
+    margin-bottom: 20px;
+    border-left: 6px solid #ffc107;
+    color: #dda501;
+    background-color: #fef9eb;
+    padding: 10px 15px;
+    max-width: 844px;
+}
+
+#calloff .CodeMirror {
+    border: 1px solid silver;
+    max-width: 800px;
+}

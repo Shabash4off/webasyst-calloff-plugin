@@ -1,0 +1,21 @@
+<div data-block="tabs">
+
+    <ul class="tabs">
+        <li class="selected"><a href="#" data-tab-trigger="display">[`tab.display`]</a></li>
+        <li ><a href="#" data-tab-trigger="appearance-frontend">[`tab.appearance.frontend`]</a></li>
+        <li ><a href="#" data-tab-trigger="appearance-backend">[`tab.appearance.backend`]</a></li>
+     </ul>
+
+     <div class="tab-content" data-tab-content="display">
+        {include file='./tabs/Display.html'}
+     </div>
+
+     <div class="tab-content" data-tab-content="appearance-frontend">
+        {include file='./tabs/AppearanceFrontend.html'}
+     </div>
+
+     <div class="tab-content" data-tab-content="appearance-backend">
+         {include file='./tabs/AppearanceBackend.html'}
+     </div>
+
+</div>

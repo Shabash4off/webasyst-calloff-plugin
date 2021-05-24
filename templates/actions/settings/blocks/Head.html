@@ -1,0 +1,24 @@
+<!-- Redactor -->
+<link rel="stylesheet" href="{$wa_url}wa-content/js/redactor/2/redactor.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/redactor/2/redactor.min.js?v{$wa->version(true)}"></script>
+{if $wa->locale() !== 'en_US'}
+<script src="{$wa_url}wa-content/js/redactor/2/{substr($wa->locale(), 0, 2)}.js?v{$wa->version(true)}"></script>
+{/if}
+
+<!--Codemirror-->
+<link rel="stylesheet" href="{$wa_url}wa-content/js/codemirror/lib/codemirror.css?v{$wa->version(true)}">
+<script type="text/javascript" src="{$wa_url}wa-content/js/codemirror/lib/codemirror.js?v{$wa->version(true)}"></script>
+<script type="text/javascript" src="{$wa_url}wa-content/js/codemirror/mode/css/css.js?v{$wa->version(true)}"></script>
+<script type="text/javascript" src="{$wa_url}wa-content/js/codemirror/mode/smarty/smarty.js?v{$wa->version(true)}"></script>
+
+<!-- Switcher -->
+<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js?v{$wa->version(true)}"></script>
+
+<!--Tooltip-->
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/jquery-tooltip/jquery.tooltip.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/jquery-plugins/jquery-tooltip/jquery.tooltip.patched.min.js?v{$wa->version(true)}"></script>
+
+<!-- Plugin -->
+<link rel="stylesheet" href="{$wa_url}wa-apps/{$app_id}/plugins/{$plugin_id}/css/{$plugin_id}.settings.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-apps/{$app_id}/plugins/{$plugin_id}/js/{$plugin_id}.jss.js?v{$wa->version(true)}"></script>
+<script src="{$wa_url}wa-apps/{$app_id}/plugins/{$plugin_id}/js/{$plugin_id}.settings.js?v{$wa->version(true)}"></script>

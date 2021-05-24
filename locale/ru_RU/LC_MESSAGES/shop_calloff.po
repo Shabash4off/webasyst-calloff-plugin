@@ -1,0 +1,206 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: calloff\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru_RU\n"
+
+# Основное
+msgid "title"
+msgstr "Без звонка"
+
+msgid "devs"
+msgstr "Разработчик"
+
+# Меню
+msgid "menu.help"
+msgstr "Поддержка"
+
+msgid "menu.feedback"
+msgstr "Оставить отзыв"
+
+# Настпройки
+msgid "setting.plugin_active"
+msgstr "Статус плагин"
+
+msgid "setting.active"
+msgstr "Статус"
+
+msgid "setting.default_value"
+msgstr "Значение по умолчанию"
+
+msgid "setting.default_value.output"
+msgstr "Да,Нет"
+
+msgid "setting.display_step"
+msgstr "Отображать форму на этапе"
+
+msgid "setting.display_step.output"
+msgstr "Контактная информация,Подтверждение"
+
+msgid "setting.form_type"
+msgstr "Тип формы"
+
+msgid "setting.form_template"
+msgstr "Шаблон формы"
+
+msgid "setting.form_template.radio"
+msgstr "Радио кнопки"
+
+msgid "setting.form_template.checkbox"
+msgstr "Флажок"
+
+msgid "setting.description"
+msgstr "Описание"
+
+msgid "setting.yes_option"
+msgstr "Вариант \"Да\""
+
+msgid "setting.no_option"
+msgstr "Вариант \"Нет\""
+
+msgid "setting.storefront_selector"
+msgstr "Витрина"
+
+msgid "setting.storefront_selector.general"
+msgstr "Общие настройки для всех витрин"
+
+msgid "setting.details"
+msgstr "Подробности"
+
+msgid "setting.template"
+msgstr "Шаблон"
+
+# Всплывающие подсказки
+msgid "title.active"
+msgstr "Включите для работы плагина."
+
+msgid "title.storefront_selector"
+msgstr "Выберите витрину для настройки. Если выбрано Общие настройки, то выбранные настройки будут применяться ко всем витринам."
+
+msgid "title.storefront_active"
+msgstr "Включите для работы плагина в выбранной витрине."
+
+msgid "title.default_value"
+msgstr "Значение которое будет выставлено при загрузке формы."
+
+msgid "title.display_step"
+msgstr "Этап оформления заказа, на котором будет выведена форма."
+
+msgid "title.description"
+msgstr "Текст отображаемый перед формой."
+
+msgid "title.yes_option"
+msgstr "Текст обозначающий положительный ответ."
+
+msgid "title.no_option"
+msgstr "Текст обозначающий отрицательный ответ."
+
+msgid "title.form_template"
+msgstr "Шаблон функциональной части формы."
+
+msgid "title.frontend.template"
+msgstr "Общий шаблон формы."
+
+msgid "title.details"
+msgstr "Текст сообщения."
+
+msgid "title.backend.template"
+msgstr "Шаблон сообщения выводимого в бэкэнде."
+
+# Остальное
+msgid "option"
+msgstr "Вариант выбранный пользователем."
+
+# Вкладки
+msgid "tab.display"
+msgstr "Отображение"
+
+msgid "tab.appearance.frontend"
+msgstr "Дизайн - Фронтенд"
+
+msgid "tab.appearance.backend"
+msgstr "Дизайн - Бэкенд"
+
+# Динамическое Вид
+msgid "da.background"
+msgstr "Задний фон"
+
+msgid "da.text"
+msgstr "Текст"
+
+msgid "da.border"
+msgstr "Границы"
+
+msgid "da.border.solid"
+msgstr "Сплошной"
+
+msgid "da.border.dotted"
+msgstr "Точки"
+
+msgid "da.border.dashed"
+msgstr "Пунктир"
+
+msgid "da.border_width"
+msgstr "Толщина"
+
+msgid "da.border_radius"
+msgstr "Скругление"
+
+msgid "da.lists"
+msgstr "Списки"
+
+msgid "da.lists.none"
+msgstr "Нет"
+
+msgid "da.lists.disc"
+msgstr "Диски"
+
+msgid "da.lists.circle"
+msgstr "Круги"
+
+msgid "da.lists.square"
+msgstr "Квадраты"
+
+msgid "da.lists.decimal"
+msgstr "Цифры"
+
+msgid "da.margins"
+msgstr "Внешние отступы"
+
+msgid "da.paddings"
+msgstr "Внутренние отступы"
+
+msgid "da.scale"
+msgstr "Размеры"
+
+msgid "da.scale_box-sizing"
+msgstr "Блоковая модель"
+
+msgid "da.width"
+msgstr "Ширина"
+
+msgid "da.color"
+msgstr "Цвет"
+
+msgid "da.type"
+msgstr "Тип"
+
+msgid "da.top"
+msgstr "Сверху"
+
+msgid "da.right"
+msgstr "Слева"
+
+msgid "da.bottom"
+msgstr "Снизу"
+
+msgid "da.left"
+msgstr "Слева"

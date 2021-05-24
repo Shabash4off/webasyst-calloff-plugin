@@ -1,0 +1,29 @@
+<div>
+
+    {include file='../../components/Field.html' 
+    type='switcher' name="`$storefrontName`[active]" 
+    label='[`setting.active`]' 
+    value=$storefrontSettings['active']
+    title='[`title.storefront_active`]'}
+    
+    {$outputs = explode(',', _wp('setting.default_value.output'))}
+    {include file='../../components/Field.html' 
+    type='select' 
+    name="`$storefrontName`[default_value]" 
+    label='[`setting.default_value`]' 
+    value=$storefrontSettings['default_value']
+    option_values=['yes', 'no']
+    options_outputs=$outputs
+    title="[`title.default_value`]"}
+
+    {$outputs = explode(',', _wp('setting.display_step.output'))}
+    {include file='../../components/Field.html' 
+    type='select' 
+    name="`$storefrontName`[display_step]" 
+    label='[`setting.display_step`]' 
+    value=$storefrontSettings['display_step']
+    option_values=['contactinfo', 'confirmation']
+    options_outputs=$outputs
+    title="[`title.display_step`]"}
+    
+</div>

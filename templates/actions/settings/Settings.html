@@ -1,0 +1,89 @@
+{$name_prefix = "`$app_id`_`$plugin_id`"}
+
+<div id="calloff">
+    {include file='./blocks/Head.html'}
+
+    {include file='./blocks/Header.html'}
+
+    <form id="plugins-settings-form" action="?module=plugins&id={$plugin_id}&action=save" method="POST">
+        {$wa->csrf()}
+
+        <div class="fields" style="width: 100%;">
+
+            <div class="field-group">  
+                {include file='./components/Field.html' 
+                type='switcher' name='[active]' 
+                label='[`setting.plugin_active`]' value=$settings['active'] 
+                title="[`title.active`]"}
+            </div>
+
+            <!-- Storefront selector -->
+            <div class="field">
+
+                <div class="name">
+                  <strong>[`setting.storefront_selector`]</strong>
+                  <span title="[`title.storefront_selector`]">[?]</span>
+                </div>
+
+                <div class="value">
+
+                  <select data-tab-select="storefronts">
+                    <option value="*/*">[`setting.storefront_selector.general`]</option>
+                    {foreach $storefronts as $domain=>$routes}
+                    <optgroup label="{$domain}">
+                      {foreach $routes as $route}
+                      <option value="{$domain}/{$route['url']}">{$domain}/{$route['url']}</option>
+                      {/foreach}
+                    </optgroup>
+                    {/foreach}
+                  </select>
+
+                </div>
+
+            </div>
+
+            <div data-tab-select-content-block="storefronts">
+                <!--Common storefront settings-->
+                {include file='./components/Storefront.html' storefrontName="[storefronts][*][*]" storefrontSettings=$settings['storefronts']['*']['*'] storefrontId="*/*"}
+
+                <!-- Storefront settings -->
+                {foreach $storefronts as $domain=>$routes}
+                    {foreach $routes as $route}
+
+                        {include file='./components/Storefront.html' storefrontName = "[storefronts][{$domain}][{$route['url']}]" storefrontSettings=$settings['storefronts'][$domain][$route['url']] storefrontId="{$domain}/{$route['url']}"}
+
+                    {/foreach}
+                {/foreach}
+            </div>
+
+            <hr>
+
+            <div class="field">
+                <div class="value submit">
+                    <input type="submit" class="button green" value="[`Save`]">
+                    <span id="plugins-settings-form-status" style="display: none;"></span>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+<script>
+(function ($) {
+    if(typeof $ === 'undefined') throw new Error('jQuery is required');
+
+    $(function () {
+        new CalloffSettings({
+            selector: '#calloff',
+            locale: {
+                on: "[`On`]",
+                off: "[`Off`]"
+            },
+            lang: '{substr($wa->locale(), 0, 2)}',
+        })
+    })
+    
+})(jQuery)
+</script>

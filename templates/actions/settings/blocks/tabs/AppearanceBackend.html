@@ -1,0 +1,25 @@
+<div>
+
+    <div class="field-group">
+        <div class="field">
+            {include file='../DynamicAppearance.html' da_key='backend' da_template='DynamicBackend'}
+        </div>
+    </div>
+
+    {include file='../../components/Field.html' 
+    type='redactor' name="`$storefrontName`[backend][details]" 
+    label='[`setting.details`]' 
+    value=$storefrontSettings['backend']['details']
+    title="[`title.details`]"
+    variables="Details.html"
+    id="details-{$storefrontId}"}
+
+    {include file='../../components/Field.html' 
+    type='editor' name="`$storefrontName`[backend][template_backend]" 
+    label='[`setting.template`]' 
+    mode="smarty"
+    value=$storefrontSettings['backend']['template']
+    title="[`title.backend.template`]"
+    variables="BackendTemplate.html"
+    id="backend-template-{$storefrontId}"}
+</div>
