@@ -35,21 +35,28 @@
                 <input type="radio" name="{$name_prefix}{$storefrontName}[frontend][form_type]" 
                 value="radio" 
                 {if $storefrontSettings['frontend']['form_type'] === 'radio'}checked{/if}>
-                <span>[`setting.form_template.radio`]</span>
+                <span>[`setting.form_template.radio`]</span> 
+
+                <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-{$storefrontId}">
+                    <i class="icon16 notebooks" style="vertical-align: middle;"></i>
+                    <b><i>[`setting.template`]</i></b>
+                </a>
             </div>
 
-            <textarea class="editor" data-mode="smarty" 
-            name="{$name_prefix}{$storefrontName}[frontend][form_template][radio]"
-            >{$storefrontSettings['frontend']['form_template']['radio']|escape:"html"}</textarea>
-            
-            <div class="block">
-                <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-{$storefrontId}">
-                    <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
-                    <b><i>Переменные окружения</i></b>
-                </a>
+            <div data-spoiler-content="form-template-radio-{$storefrontId}">
+                <textarea class="editor" data-mode="smarty" 
+                name="{$name_prefix}{$storefrontName}[frontend][form_template][radio]"
+                >{$storefrontSettings['frontend']['form_template']['radio']|escape:"html"}</textarea>
                 
-                <div data-spoiler-content="form-template-radio-{$storefrontId}">
-                    {include file="../variables/FormTemplate.html"}
+                <div class="block">
+                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-vars-{$storefrontId}">
+                        <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
+                        <b><i>[`variables`]</i></b>
+                    </a>
+                    
+                    <div data-spoiler-content="form-template-radio-vars-{$storefrontId}">
+                        {include file="../variables/FormTemplate.html"}
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,20 +67,27 @@
                 value="checkbox"
                 {if $storefrontSettings['frontend']['form_type'] === 'checkbox'}checked{/if}>
                 <span>[`setting.form_template.checkbox`]</span>
-            </div>
-            
-            <textarea class="editor" data-mode="smarty" 
-            name="{$name_prefix}{$storefrontName}[frontend][form_template][checkbox]"
-            >{$storefrontSettings['frontend']['form_template']['checkbox']|escape:"html"}</textarea>
 
-            <div class="block">
                 <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-{$storefrontId}">
-                    <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
-                    <b><i>Переменные окружения</i></b>
+                    <i class="icon16 notebooks" style="vertical-align: middle;"></i>
+                    <b><i>[`setting.template`]</i></b>
                 </a>
-                
-                <div data-spoiler-content="form-template-checkbox-{$storefrontId}">
-                    {include file="../variables/FormTemplate.html"}
+            </div>
+
+            <div data-spoiler-content="form-template-checkbox-{$storefrontId}">
+                <textarea class="editor" data-mode="smarty" 
+                name="{$name_prefix}{$storefrontName}[frontend][form_template][checkbox]"
+                >{$storefrontSettings['frontend']['form_template']['checkbox']|escape:"html"}</textarea>
+
+                <div class="block">
+                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-vars-{$storefrontId}">
+                        <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
+                        <b><i>[`variables`]</i></b>
+                    </a>
+                    
+                    <div data-spoiler-content="form-template-checkbox-vars-{$storefrontId}">
+                        {include file="../variables/FormTemplate.html"}
+                    </div>
                 </div>
             </div>
         </div>

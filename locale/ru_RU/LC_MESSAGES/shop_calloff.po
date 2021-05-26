@@ -119,6 +119,9 @@ msgstr "Шаблон сообщения выводимого в бэкэнде."
 msgid "option"
 msgstr "Вариант выбранный пользователем."
 
+msgid "variables"
+msgstr "Переменные окружения" 
+
 # Вкладки
 msgid "tab.display"
 msgstr "Отображение"

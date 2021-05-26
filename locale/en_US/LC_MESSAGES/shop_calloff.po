@@ -119,6 +119,9 @@ msgstr "Backend message template."
 msgid "option"
 msgstr "User selected option."
 
+msgid "variables"
+msgstr "Enviroment variables" 
+
 # Tabs
 msgid "tab.display"
 msgstr "Display"
