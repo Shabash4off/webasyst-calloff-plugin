@@ -1,25 +1,43 @@
 <div>
 
-    <div class="field-group">
-        <div class="field">
-            {include file='../DynamicAppearance.html' da_key='backend' da_template='DynamicBackend'}
+    {include file='../../components/Field.html' 
+    type='redactor' name="`$storefrontName`[backend][answer][yes]" 
+    label='[`setting.yes_answer`]' 
+    value=$storefrontSettings['backend']['answer']['yes']
+    title="[`title.yes_answer`]"}
+
+    {include file='../../components/Field.html' 
+    type='redactor' name="`$storefrontName`[backend][answer][no]"
+    label='[`setting.no_answer`]' 
+    value=$storefrontSettings['backend']['answer']['no']
+    title="[`title.no_answer`]"}
+
+    <div class="field">
+        
+        <div class="name">
+            <a href="#" class="inline-link" data-spoiler-trigger="backend-template-{$storefrontId}">
+                <i class="icon16 notebooks" style="vertical-align: middle;"></i>
+                <b><i>[`setting.template`]</i></b>
+            </a>
+            <span title="[`title.backend.template`]">[?]</span>
+        </div>
+
+        <div class="value" data-spoiler-content="backend-template-{$storefrontId}">
+            <textarea class="editor" data-mode="smarty" name="{$name_prefix}{$storefrontName}[backend][template]"
+            >{$storefrontSettings['backend']['template']|escape:"html"}</textarea>
+        </div>
+
+        <div class="value" data-spoiler-content="backend-template-{$storefrontId}">
+            <div class="block">
+                <a href="#" class="inline-link" data-spoiler-trigger="backend-template-vars-{$storefrontId}">
+                    <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
+                    <b><i>[`variables`]</i></b>
+                </a>
+                
+                <div data-spoiler-content="backend-template-vars-{$storefrontId}">
+                    {include file="../variables/BackendTemplate.html"}
+                </div>
+            </div>
         </div>
     </div>
-
-    {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[backend][details]" 
-    label='[`setting.details`]' 
-    value=$storefrontSettings['backend']['details']
-    title="[`title.details`]"
-    variables="Details.html"
-    id="details-{$storefrontId}"}
-
-    {include file='../../components/Field.html' 
-    type='editor' name="`$storefrontName`[backend][template_backend]" 
-    label='[`setting.template`]' 
-    mode="smarty"
-    value=$storefrontSettings['backend']['template']
-    title="[`title.backend.template`]"
-    variables="BackendTemplate.html"
-    id="backend-template-{$storefrontId}"}
 </div>

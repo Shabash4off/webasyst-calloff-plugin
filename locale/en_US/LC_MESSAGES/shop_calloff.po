@@ -45,6 +45,12 @@ msgstr "Display a form in a step"
 msgid "setting.display_step.output"
 msgstr "Contact info,Confirmation"
 
+msgid "setting.backend_display_mode"
+msgstr "Display mode in backend"
+
+msgid "setting.backend_display_mode.output"
+msgstr "Message,Icon"
+
 msgid "setting.form_type"
 msgstr "Form type"
 
@@ -66,14 +72,17 @@ msgstr "\"Yes\" option"
 msgid "setting.no_option"
 msgstr "\"No\" option"
 
+msgid "setting.yes_answer"
+msgstr "Positive answer"
+
+msgid "setting.no_answer"
+msgstr "Negative answer"
+
 msgid "setting.storefront_selector"
 msgstr "Storefront"
 
 msgid "setting.storefront_selector.general"
 msgstr "General settings for all storefronts"
-
-msgid "setting.details"
-msgstr "Details"
 
 msgid "setting.template"
 msgstr "Template"
@@ -94,6 +103,9 @@ msgstr "The value that will be set when the form is loaded."
 msgid "title.display_step"
 msgstr "The stage of ordering, where the form will be displayed."
 
+msgid "title.backend_display_mode"
+msgstr "Displayed with an icon next to the number or a message in the body of the order."
+
 msgid "title.description"
 msgstr "Text displayed in front of the form."
 
@@ -103,21 +115,24 @@ msgstr "Positive option text."
 msgid "title.no_option"
 msgstr "Negative option text."
 
+msgid "title.yes_asnwer"
+msgstr "The text indicating a positive answer that will be displayed in the backend."
+
+msgid "title.no_answer"
+msgstr "Negative text that will be displayed in the backend."
+
 msgid "title.form_template"
 msgstr "Form functional part template."
 
 msgid "title.frontend.template"
 msgstr "General form template."
 
-msgid "title.details"
-msgstr "Message text."
-
 msgid "title.backend.template"
 msgstr "Backend message template."
 
 # Other
-msgid "option"
-msgstr "User selected option."
+msgid "answer"
+msgstr "User answer."
 
 msgid "variables"
 msgstr "Enviroment variables" 

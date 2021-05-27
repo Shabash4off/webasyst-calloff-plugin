@@ -25,28 +25,10 @@ class shopCalloffPlugin extends shopPlugin
 
     public function backendOrder($order)
     {
-        $option = $order['params']['calloff_option'];
-
-        if(isset($option)) {
-            $storefront_domain = $order['params']['calloff_storefront_domain'];
-            $storefront_url = $order['params']['calloff_storefront_url'];
-
-            $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
-
-            $details = shopCalloffPluginHelper::render($settings['backend']['details'], [
-                'option' => $settings['frontend']['option'][$option] 
-            ]); 
-
-            $template = shopCalloffPluginHelper::render($settings['backend']['template'], [
-                'details' => $details
-            ]);
-
-            $style = "<style>" . $settings['backend']['da_css'] . "</style>";
-
-            return array( 'info_section' => $style . "\n" . $template );
-        }
-
-        return array();
+        return [
+            'title_suffix' => $this->icon($order),
+            'info_section' => $this->message($order)
+        ];
     }
 
     public function frontendCheckout($params)
@@ -93,6 +75,51 @@ class shopCalloffPlugin extends shopPlugin
             $script = '<script defer>$(function () { new CalloffFrontend('. json_encode($frontend_options) .') })</script>';
 
             return $style . "\n" . $template . "\n" . $script;
+        }
+
+        return '';
+    }
+
+    private function message($order)
+    {
+        $option = $order['params']['calloff_option'];
+
+        if(isset($option)) {
+            $storefront_domain = $order['params']['calloff_storefront_domain'];
+            $storefront_url = $order['params']['calloff_storefront_url'];
+
+            $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
+
+            if($settings['backend_display_mode'] === 'message') {
+                $answer = $settings['backend']['answer'][$option];
+    
+                $template = shopCalloffPluginHelper::render($settings['backend']['template'], [
+                    'answer' => $answer
+                ]);
+    
+                return $template;
+            }
+        }
+
+        return '';
+    }
+
+    private function icon($order) {
+        $option = $order['params']['calloff_option'];
+
+        if(isset($option)) {
+            $storefront_domain = $order['params']['calloff_storefront_domain'];
+            $storefront_url = $order['params']['calloff_storefront_url'];
+
+            $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
+
+            if($settings['backend_display_mode'] === 'icon') {
+                $answer = $settings['backend']['answer'][$option];
+
+                $plugin_static_url = $this->getPluginStaticUrl(true);
+
+                return '<img class="icon16" style="width:20px" src="' . $plugin_static_url . 'img/option/' . $option . '_option.png">';
+            }
         }
 
         return '';

@@ -93,13 +93,33 @@
         </div>
     </div>
 
-    {include file='../../components/Field.html' 
-    type='editor' name="`$storefrontName`[frontend][template]" 
-    mode="smarty"
-    label='[`setting.template`]' 
-    value=$storefrontSettings['frontend']['template']
-    title="[`title.frontend.template`]"
-    variables="FrontendTemplate.html"
-    id="frontend-template-{$storefrontId}"}
+    <div class="field">
+        
+        <div class="name">
+            <a href="#" class="inline-link" data-spoiler-trigger="frontend-template-{$storefrontId}">
+                <i class="icon16 notebooks" style="vertical-align: middle;"></i>
+                <b><i>[`setting.template`]</i></b>
+            </a>
+            <span title="[`title.frontend.template`]">[?]</span>
+        </div>
+
+        <div class="value" data-spoiler-content="frontend-template-{$storefrontId}">
+            <textarea class="editor" data-mode="smarty" name="{$name_prefix}{$storefrontName}[frontend][template]"
+            >{$storefrontSettings['frontend']['template']|escape:"html"}</textarea>
+        </div>
+
+        <div class="value" data-spoiler-content="frontend-template-{$storefrontId}">
+            <div class="block">
+                <a href="#" class="inline-link" data-spoiler-trigger="frontend-template-vars-{$storefrontId}">
+                    <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
+                    <b><i>[`variables`]</i></b>
+                </a>
+                
+                <div data-spoiler-content="frontend-template-vars-{$storefrontId}">
+                    {include file="../variables/FrontendTemplate.html"}
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
