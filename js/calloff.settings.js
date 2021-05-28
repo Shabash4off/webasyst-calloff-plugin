@@ -49,7 +49,7 @@ var CalloffSettings = (function () {
 
         editor: function ($wrapper) {
             var $editors = $wrapper.find('.editor');
-    
+
             $editors.each(function () {
                 var $editor = $(this);
                 var editorMode = $editor.data('mode');
@@ -137,6 +137,37 @@ var CalloffSettings = (function () {
                     $spoilerContent.toggle();
                 })
             })
+        },
+
+        radioSpoiler: function ($wrapper) {
+            var $spoilerTriggers = $wrapper.find('input[data-radio-spoiler-trigger]');
+
+            $spoilerTriggers.each(function () {
+                var $spoilerTrigger = $(this);
+    
+                var spoilerContentSelector = $spoilerTrigger.data('radio-spoiler-trigger');
+                var spoilerContentValue = $spoilerTrigger.val();
+
+                var $spoilerContent = $wrapper.find('[data-radio-spoiler-content="' + spoilerContentSelector + '"]');
+    
+
+                function showSelected() {
+                    $spoilerContent.hide();
+
+                    var $selectedSpoilerContent = $spoilerContent.filter(function () {
+                        return $(this).data('radio-spoiler-value') == spoilerContentValue;
+                    }) 
+
+                    $selectedSpoilerContent.show();
+                }
+
+                showSelected();
+    
+                $spoilerTrigger.on('click change', function (e) {
+                    showSelected()
+                })
+            })
+            
         },
 
         dynamicAppearance: function($wrapper) {

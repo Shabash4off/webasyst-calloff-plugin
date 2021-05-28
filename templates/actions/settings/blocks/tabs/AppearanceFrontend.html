@@ -6,24 +6,6 @@
         </div>
     </div>
 
-    {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[frontend][description]" 
-    label='[`setting.description`]' 
-    value=$storefrontSettings['frontend']['description']
-    title="[`title.description`]"}
-
-    {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[frontend][option][yes]" 
-    label='[`setting.yes_option`]' 
-    value=$storefrontSettings['frontend']['option']['yes']
-    title="[`title.yes_option`]"}
-
-    {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[frontend][option][no]"
-    label='[`setting.no_option`]' 
-    value=$storefrontSettings['frontend']['option']['no']
-    title="[`title.no_option`]"}
-
     <div class="field">
         <div class="name">
             [`setting.form_template`]
@@ -34,7 +16,8 @@
             <div class="block">
                 <input type="radio" name="{$name_prefix}{$storefrontName}[frontend][form_type]" 
                 value="radio" 
-                {if $storefrontSettings['frontend']['form_type'] === 'radio'}checked{/if}>
+                {if $storefrontSettings['frontend']['form_type'] === 'radio'}checked{/if}
+                data-radio-spoiler-trigger="da-form-{$storefrontId}">
                 <span>[`setting.form_template.radio`]</span> 
 
                 <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-{$storefrontId}">
@@ -65,7 +48,8 @@
             <div class="block">
                 <input type="radio" name="{$name_prefix}{$storefrontName}[frontend][form_type]" 
                 value="checkbox"
-                {if $storefrontSettings['frontend']['form_type'] === 'checkbox'}checked{/if}>
+                {if $storefrontSettings['frontend']['form_type'] === 'checkbox'}checked{/if}
+                data-radio-spoiler-trigger="da-form-{$storefrontId}">
                 <span>[`setting.form_template.checkbox`]</span>
 
                 <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-{$storefrontId}">
@@ -91,6 +75,26 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    {include file='../../components/Field.html' 
+    type='redactor' name="`$storefrontName`[frontend][description]" 
+    label='[`setting.description`]' 
+    value=$storefrontSettings['frontend']['description']
+    title="[`title.description`]"}
+
+    {include file='../../components/Field.html' 
+    type='redactor' name="`$storefrontName`[frontend][option][yes]" 
+    label='[`setting.yes_option`]' 
+    value=$storefrontSettings['frontend']['option']['yes']
+    title="[`title.yes_option`]"}
+
+    <div data-radio-spoiler-content="da-form-{$storefrontId}" data-radio-spoiler-value="radio">
+        {include file='../../components/Field.html' 
+        type='redactor' name="`$storefrontName`[frontend][option][no]"
+        label='[`setting.no_option`]' 
+        value=$storefrontSettings['frontend']['option']['no']
+        title="[`title.no_option`]"}
     </div>
 
     <div class="field">

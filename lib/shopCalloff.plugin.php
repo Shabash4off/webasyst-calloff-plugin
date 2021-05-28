@@ -53,6 +53,7 @@ class shopCalloffPlugin extends shopPlugin
 
         if($active && $settings['display_step'] === $step) {
 
+            $this->addCss('css/calloff.frontend.css');
             $this->addJs('js/calloff.jss.js');
             $this->addJs('js/calloff.frontend.js');
             
@@ -72,7 +73,7 @@ class shopCalloffPlugin extends shopPlugin
 
             $style = "<style>" . $settings['frontend']['da_css'] . "</style>";
 
-            $script = '<script defer>$(function () { new CalloffFrontend('. json_encode($frontend_options) .') })</script>';
+            $script = '<script>$(function () { new CalloffFrontend('. json_encode($frontend_options) .') })</script>';
 
             return $style . "\n" . $template . "\n" . $script;
         }
@@ -114,8 +115,6 @@ class shopCalloffPlugin extends shopPlugin
             $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
 
             if($settings['backend_display_mode'] === 'icon') {
-                $answer = $settings['backend']['answer'][$option];
-
                 $plugin_static_url = $this->getPluginStaticUrl(true);
 
                 return '<img class="icon16" style="width:20px" src="' . $plugin_static_url . 'img/option/' . $option . '_option.png">';
