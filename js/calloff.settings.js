@@ -142,31 +142,26 @@ var CalloffSettings = (function () {
         radioSpoiler: function ($wrapper) {
             var $spoilerTriggers = $wrapper.find('input[data-radio-spoiler-trigger]');
 
-            $spoilerTriggers.each(function () {
+            function showSelected() {
                 var $spoilerTrigger = $(this);
-    
+
                 var spoilerContentSelector = $spoilerTrigger.data('radio-spoiler-trigger');
                 var spoilerContentValue = $spoilerTrigger.val();
 
                 var $spoilerContent = $wrapper.find('[data-radio-spoiler-content="' + spoilerContentSelector + '"]');
-    
 
-                function showSelected() {
-                    $spoilerContent.hide();
+                $spoilerContent.hide();
 
-                    var $selectedSpoilerContent = $spoilerContent.filter(function () {
-                        return $(this).data('radio-spoiler-value') == spoilerContentValue;
-                    }) 
+                var $selectedSpoilerContent = $spoilerContent.filter(function () {
+                    return $(this).data('radio-spoiler-value') == spoilerContentValue;
+                }) 
 
-                    $selectedSpoilerContent.show();
-                }
+                $selectedSpoilerContent.show();
+            }
 
-                showSelected();
-    
-                $spoilerTrigger.on('click change', function (e) {
-                    showSelected()
-                })
-            })
+            $spoilerTriggers.filter(function () { return $(this).is(':checked') }).each(showSelected)
+
+            $spoilerTriggers.on('click change', showSelected)
             
         },
 
