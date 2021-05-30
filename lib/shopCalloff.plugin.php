@@ -93,9 +93,14 @@ class shopCalloffPlugin extends shopPlugin
 
             if($settings['backend_display_mode'] === 'message') {
                 $answer = $settings['backend']['answer'][$option];
-    
+
+                $plugin_static_url = $this->getPluginStaticUrl(true);
+
+                $icon_url = $plugin_static_url . 'img/option/' . $option . '_option.png';
+
                 $template = shopCalloffPluginHelper::render($settings['backend']['template'], [
-                    'answer' => $answer
+                    'answer' => $answer,
+                    'icon_url' => $icon_url,
                 ]);
     
                 return $template;
@@ -115,9 +120,14 @@ class shopCalloffPlugin extends shopPlugin
             $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
 
             if($settings['backend_display_mode'] === 'icon') {
+                $answer = $settings['backend']['answer'][$option];
+
                 $plugin_static_url = $this->getPluginStaticUrl(true);
 
-                return '<img class="icon16" style="width:20px" src="' . $plugin_static_url . 'img/option/' . $option . '_option.png">';
+                $icon_src = $plugin_static_url . 'img/option/' . $option . '_option.png';
+                $icon_title = strip_tags($answer);
+
+                return '<img style="width:20px" title="' . $icon_title . '" src="' . $icon_src . '">';
             }
         }
 

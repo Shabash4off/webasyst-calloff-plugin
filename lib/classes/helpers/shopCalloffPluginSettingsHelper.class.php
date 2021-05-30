@@ -34,7 +34,7 @@ class shopCalloffPluginSettingsHelper
                     new shopCalloffPluginSettingField('template', "<div class=\"calloff_plugin\">\n\t<div>\n\t\t{\$description}\n\t</div>\n\n\t{\$form}\n\n</div>"),
                 ]),
                 new shopCalloffPluginSettingGroup('backend', [
-                    new shopCalloffPluginSettingField('template', "<div class=\"profile image50px\" style=\"margin-top: -18px;\">\n\t<div class=\"image\"></div>\n\n\t<div class=\"details\" style=\"min-height: 1px\">\n\t\t<ul class=\"menu-v with-icons compact\">\n\t\t\t<li>\n\t\t\t\t<div class=\"calloff_plugin\">\n\t\t\t\t\t<i class=\"icon16 phone\"></i>\n\t\t\t\t\t{\$answer}\n\t\t\t\t</div>\n\t\t\t\t<p class=\"hint\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n</div>"),
+                    new shopCalloffPluginSettingField('template', "<div class=\"profile image50px\" style=\"margin-top: -18px;\">\n\t<div class=\"image\"></div>\n\n\t<div class=\"details\" style=\"min-height: 1px\">\n\t\t<ul class=\"menu-v with-icons compact\">\n\t\t\t<li>\n\t\t\t\t<div class=\"calloff_plugin\">\n\t\t\t\t\t<img style=\"width: 16px;margin-right: 5px;margin-bottom: -3px;\" src=\"{\$icon_url}\">\n\t\t\t\t\t{\$answer}\n\t\t\t\t</div>\n\t\t\t\t<p class=\"hint\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n</div>"),
                     new shopCalloffPluginSettingGroup('answer', [
                         new shopCalloffPluginSettingField('yes', "<span style=\"color: rgb(89, 166, 13);\"><strong>Перезвонить</strong>.</span>"),
                         new shopCalloffPluginSettingField('no', "<span style=\"color: rgb(204, 0, 0);\"><strong>Не перезванивать</strong>.</span>"),

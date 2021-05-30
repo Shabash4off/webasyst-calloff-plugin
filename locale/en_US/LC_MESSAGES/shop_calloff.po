@@ -134,6 +134,9 @@ msgstr "Backend message template."
 msgid "answer"
 msgstr "User answer."
 
+msgid "icon_url"
+msgstr "Path to plugin icon."
+
 msgid "variables"
 msgstr "Enviroment variables" 
 
