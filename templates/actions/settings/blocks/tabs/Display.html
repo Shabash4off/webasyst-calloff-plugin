@@ -25,15 +25,5 @@
     option_values=['contactinfo', 'confirmation']
     options_outputs=$outputs
     title="[`title.display_step`]"}
-
-    {$outputs = explode(',', _wp('setting.backend_display_mode.output'))}
-    {include file='../../components/Field.html' 
-    type='select' 
-    name="`$storefrontName`[backend_display_mode]" 
-    label='[`setting.backend_display_mode`]' 
-    value=$storefrontSettings['backend_display_mode']
-    option_values=['message', 'icon']
-    options_outputs=$outputs
-    title="[`title.backend_display_mode`]"}
     
 </div>
