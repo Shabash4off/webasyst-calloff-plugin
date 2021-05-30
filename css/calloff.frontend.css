@@ -1,6 +1,6 @@
-.calloff_plugin ul, ol {
-    padding-left: 0;
-    margin-left: 0;
+.calloff_radio, 
+.calloff_checkbox {
+    margin: 1em 0 0 0;
 }
 
 .calloff_plugin label p {

@@ -20,7 +20,7 @@ class shopCalloffPluginSettingsHelper
                 new shopCalloffPluginSettingGroup('frontend', [
                     new shopCalloffPluginSettingField('da_jss', ''),
                     new shopCalloffPluginSettingField('da_css', ''),
-                    new shopCalloffPluginSettingField('description', "<p><strong>Вы можете отказаться от обязательного звонка нашего менеджера для подтверждения заказа, Ваш заказ будет сразу собран и отправлен.</strong></p><p><span style=\"color: rgb(89, 89, 89);\">При необходимости, нам все же придется перезвонить Вам в случае уточнения контактной информации или по наличию товара.</span></p>"),
+                    new shopCalloffPluginSettingField('description', "<p>Вы можете отказаться от обязательного звонка менеджера для подтверждения заказа, Ваш заказ сразу будет собран и отправлен.</p><p><span style=\"color: #888;\">При необходимости, нам все же придется перезвонить Вам для уточнения контактной информации или наличия товара.</span></p>"),
                     new shopCalloffPluginSettingGroup('option', [
                         new shopCalloffPluginSettingField('yes', "<strong>Перезвоните мне</strong> для подтверждения заказа"),
                         new shopCalloffPluginSettingField('no', "<strong>Не перезванивать мне</strong>, сразу отправлять заказ"),
@@ -29,7 +29,7 @@ class shopCalloffPluginSettingsHelper
 
                     new shopCalloffPluginSettingGroup('form_template', [
                         new shopCalloffPluginSettingField('radio', "<ul class=\"calloff_radio\">\n\t<li>\n\t\t<input type=\"radio\" name=\"calloff_option\" id=\"calloff_yes_option\" value=\"yes\">\n\t\t<label for=\"calloff_yes_option\">{\$yes_option}</label>\n\t</li>\n\t<li>\n\t\t<input type=\"radio\" name=\"calloff_option\" id=\"calloff_no_option\" value=\"no\">\n\t\t<label for=\"calloff_no_option\">{\$no_option}</label>\n\t</li>\n</ul>"),
-                        new shopCalloffPluginSettingField('checkbox', "<input type=\"checkbox\" name=\"calloff_option\" id=\"calloff_option\">\n<label for=\"calloff_option\">{\$yes_option}</label>"),
+                        new shopCalloffPluginSettingField('checkbox', "<div class=\"calloff_checkbox\">\n\t<input type=\"checkbox\" name=\"calloff_option\" id=\"calloff_option\">\n\t<label for=\"calloff_option\">{\$yes_option}</label>\n</div>"),
                     ]),
                     new shopCalloffPluginSettingField('template', "<div class=\"calloff_plugin\">\n\t<div class=\"calloff_description\">\n\t\t{\$description}\n\t</div>\n\n\t{\$form}\n\n</div>"),
                 ]),

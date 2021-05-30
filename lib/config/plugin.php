@@ -3,7 +3,7 @@
 return [
     'name' => "Без звонка",
     'description' => "Даёт возможность покупателю отказаться от звонка",
-    'version' => "0.0.1",
+    'version' => "1.0.0",
     'vendor' => 1059969,
     'frontend' => true,
     'custom_settings' => true,
