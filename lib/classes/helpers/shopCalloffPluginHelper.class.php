@@ -76,7 +76,8 @@ class shopCalloffPluginHelper
         $storefront_domain = shopCalloffPluginRoutingHelper::getDomain();
         $storefront_url = shopCalloffPluginRoutingHelper::getUrl();
 
-        $value = wa()->getStorage()->get('shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option') ?: $storefront_settings['default_value'];
+        $session_value = wa()->getStorage()->get('shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option');
+        $value = isset($session_value) ? $session_value : $storefront_settings['default_value'];
 
         return [
             'value' => $value,

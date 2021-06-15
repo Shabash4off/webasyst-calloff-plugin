@@ -1,19 +1,19 @@
 <?php
-
 class shopCalloffPlugin extends shopPlugin 
 {
 
     public function orderActionCreate($data) 
     {
-        $settings = shopCalloffPluginHelper::getStorefrontSettings();
-        
         $storefront_domain = shopCalloffPluginRoutingHelper::getDomain();
         $storefront_url = shopCalloffPluginRoutingHelper::getUrl();
 
         $storage = wa()->getStorage(); 
+        $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
 
         $session_name = 'shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option';
-        $option = $storage->get($session_name) ?: $settings['default_value'];
+
+        $session_option = $storage->get($session_name);
+        $option = isset($session_option) ? $session_option : $settings['default_value'];
         
         $model = new shopOrderParamsModel();
         $model->setOne($data['order_id'], 'calloff_option', $option);
@@ -83,9 +83,9 @@ class shopCalloffPlugin extends shopPlugin
 
     private function message($order)
     {
-        $option = $order['params']['calloff_option'];
+        if(isset($order['params']['calloff_option'])) {
+            $option = $order['params']['calloff_option'];
 
-        if(isset($option)) {
             $storefront_domain = $order['params']['calloff_storefront_domain'];
             $storefront_url = $order['params']['calloff_storefront_url'];
 
@@ -111,9 +111,9 @@ class shopCalloffPlugin extends shopPlugin
     }
 
     private function icon($order) {
-        $option = $order['params']['calloff_option'];
+        if(isset($order['params']['calloff_option'])) {
+            $option = $order['params']['calloff_option'];
 
-        if(isset($option)) {
             $storefront_domain = $order['params']['calloff_storefront_domain'];
             $storefront_url = $order['params']['calloff_storefront_url'];
 
