@@ -117,7 +117,7 @@ class shopCalloffPluginHelper
         return $view->fetch('string:' . $template);
     }
 
-    private static function toBoolean($value) 
+    public static function toBoolean($value) 
     {
         return filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }

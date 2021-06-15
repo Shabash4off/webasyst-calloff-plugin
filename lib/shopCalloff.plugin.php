@@ -10,17 +10,22 @@ class shopCalloffPlugin extends shopPlugin
         $storage = wa()->getStorage(); 
         $settings = shopCalloffPluginHelper::getStorefrontSettings($storefront_domain, $storefront_url);
 
-        $session_name = 'shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option';
+        $active = shopCalloffPluginHelper::toBoolean(shopCalloffPluginHelper::getSettings()['active']);
+        $storefront_active = shopCalloffPluginHelper::toBoolean($settings['active']);
 
-        $session_option = $storage->get($session_name);
-        $option = isset($session_option) ? $session_option : $settings['default_value'];
-        
-        $model = new shopOrderParamsModel();
-        $model->setOne($data['order_id'], 'calloff_option', $option);
-        $model->setOne($data['order_id'], 'calloff_storefront_domain', $storefront_domain);
-        $model->setOne($data['order_id'], 'calloff_storefront_url', $storefront_url);
-        
-        $storage->remove($session_name);
+        if ($active && $storefront_active) {
+            $session_name = 'shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option';
+    
+            $session_option = $storage->get($session_name);
+            $option = isset($session_option) ? $session_option : $settings['default_value'];
+            
+            $model = new shopOrderParamsModel();
+            $model->setOne($data['order_id'], 'calloff_option', $option);
+            $model->setOne($data['order_id'], 'calloff_storefront_domain', $storefront_domain);
+            $model->setOne($data['order_id'], 'calloff_storefront_url', $storefront_url);
+            
+            $storage->remove($session_name);
+        }
     }
 
     public function backendOrder($order)
