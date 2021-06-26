@@ -27,34 +27,22 @@
 
                 <div class="value">
 
-                  <select data-tab-select="storefronts">
-                    <option value="*/*">[`setting.storefront_selector.general`]</option>
-                    {foreach $storefronts as $domain=>$routes}
-                    <optgroup label="{$domain}">
-                      {foreach $routes as $route}
-                      <option value="{$domain}/{$route['url']}">{$domain}/{$route['url']}</option>
-                      {/foreach}
-                    </optgroup>
-                    {/foreach}
-                  </select>
+                    <select id="storefront-select">
+                        <option data-domain="*" data-url="*">[`setting.storefront_selector.general`]</option>
+                        {foreach $storefronts as $domain=>$routes}
+                        <optgroup label="{$domain}">
+                            {foreach $routes as $route}
+                            <option data-domain="{$domain}" data-url="{$route['url']}">{$domain}/{$route['url']}</option>
+                            {/foreach}
+                        </optgroup>
+                        {/foreach}
+                    </select>
 
                 </div>
 
             </div>
-
-            <div data-tab-select-content-block="storefronts">
-                <!--Common storefront settings-->
-                {include file='./components/Storefront.html' storefrontName="[storefronts][*][*]" storefrontSettings=$settings['storefronts']['*']['*'] storefrontId="*/*"}
-
-                <!-- Storefront settings -->
-                {foreach $storefronts as $domain=>$routes}
-                    {foreach $routes as $route}
-
-                        {include file='./components/Storefront.html' storefrontName = "[storefronts][{$domain}][{$route['url']}]" storefrontSettings=$settings['storefronts'][$domain][$route['url']] storefrontId="{$domain}/{$route['url']}"}
-
-                    {/foreach}
-                {/foreach}
-            </div>
+            
+            <div id="storefront-content"></div>
 
             <hr>
 
@@ -76,7 +64,7 @@
 
     $(function () {
         new CalloffSettings({
-            selector: '#calloff',
+            $wrapper: $('#plugins-settings-form'),
             locale: {
                 on: "[`On`]",
                 off: "[`Off`]"

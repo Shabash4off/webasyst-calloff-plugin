@@ -5,6 +5,7 @@ class shopCalloffPluginSettingsAction extends waViewAction
 
     public function execute()
     {
+
         $app_id = shopCalloffPluginHelper::APP_ID;
         $plugin_id = shopCalloffPluginHelper::PLUGIN_ID;
 

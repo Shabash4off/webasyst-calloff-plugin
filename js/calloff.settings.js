@@ -2,13 +2,12 @@ var CalloffSettings = (function () {
     /**
      * @constructor
      * @param {object} options
-     * @param {string} options.selector Wrapper selector
+     * @param {string} options.$wrapper Wrapper 
      * @param {{[key: string]: string}} options.locale Locale strings
      * @param {string} options.lang
      */
     CalloffSettings = function (options) {
-        this.$wrapper = $(options.selector);
-        if(this.$wrapper.length === 0) throw new Error('Can\'t find wrapper element with selector "' + options.selector + '"')
+        this.$wrapper = options.$wrapper;
     
         this.locale = options.locale;
         this.lang = options.lang;
@@ -91,27 +90,57 @@ var CalloffSettings = (function () {
             })
         },
 
-        selectTab: function ($wrapper) {
-            var $tabSelects = $wrapper.find('[data-tab-select]');
+        storefrontSelect: function ($wrapper) {
+            var self = this;
+
+            var $storefrontSelect = $wrapper.find('#storefront-select');
+            var $storefrontContent = $wrapper.find('#storefront-content');
+
+            if ($storefrontSelect.length === 0) return;
 
             function showActiveTabContent() {
-                var $tabSelect = $(this);
+                $storefrontContent.html('<i class="icon16 loading"></i>');
 
-                var contentBlock = $tabSelect.data('tab-select');
-                var $contentBlock = $wrapper.find('[data-tab-select-content-block="' + contentBlock + '"]');
+                var selectedStorefront = $storefrontSelect.find(':selected');
+                
+                var storefrontDomain = selectedStorefront.data('domain');
+                var storefrontUrl = selectedStorefront.data('url');
 
-                var $content = $contentBlock.find('[data-tab-select-content]');
-                $content.hide();
-
-                var selectedTabLabel = $tabSelect.find('option:selected').val();
-
-                $contentBlock.find('[data-tab-select-content="'+selectedTabLabel+'"]').show();
+                $.post('?module=calloffPluginSettingsStorefront', {domain: storefrontDomain, url: storefrontUrl})
+                .done(function (data) {
+                    $storefrontContent.html(data);
+                    new CalloffSettings({
+                        $wrapper: $storefrontContent,
+                        locale: self.locale,
+                        lang: self.lang
+                    })
+                });
             }
-
-            $tabSelects.each(showActiveTabContent);
-
-            $tabSelects.on('change', showActiveTabContent);
+            showActiveTabContent();
+            $storefrontSelect.on('change', showActiveTabContent);
         },
+
+        // selectTab: function ($wrapper) {
+        //     var $tabSelects = $wrapper.find('[data-tab-select]');
+
+        //     function showActiveTabContent() {
+        //         var $tabSelect = $(this);
+
+        //         var contentBlock = $tabSelect.data('tab-select');
+        //         var $contentBlock = $wrapper.find('[data-tab-select-content-block="' + contentBlock + '"]');
+
+        //         var $content = $contentBlock.find('[data-tab-select-content]');
+        //         $content.hide();
+
+        //         var selectedTabLabel = $tabSelect.find('option:selected').val();
+
+        //         $contentBlock.find('[data-tab-select-content="'+selectedTabLabel+'"]').show();
+        //     }
+
+        //     $tabSelects.each(showActiveTabContent);
+
+        //     $tabSelects.on('change', showActiveTabContent);
+        // },
 
         tooltip: function ($wrapper) {
             $wrapper.find('[title]').tooltip();

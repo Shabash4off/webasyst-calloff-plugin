@@ -138,4 +138,29 @@ class shopCalloffPlugin extends shopPlugin
 
         return '';
     }
+
+    public function saveSettings($settings = array())
+    {
+        foreach ($settings['storefronts'] as $storefront_code => $storefront_settings) {
+            foreach ($storefront_settings as $setting_name => $setting_value) {
+                if(is_array($setting_value)) {
+
+                    foreach ($setting_value as $setting_group_name => $setting_group_fields) {
+                        if(is_array($setting_group_fields)) {
+                            foreach ($setting_group_fields as $setting_group_field_name => $setting_group_field_value) {
+                                shopCalloffPluginSettingsHelper::model()->set($storefront_code, $setting_group_field_name, $setting_group_field_value, [$setting_name, $setting_group_name]);
+                            }
+                        }
+                        else {
+                            shopCalloffPluginSettingsHelper::model()->set($storefront_code, $setting_group_name, $setting_group_fields, [$setting_name]);
+                        }  
+                    }
+                } else {
+                    shopCalloffPluginSettingsHelper::model()->set($storefront_code, $setting_name, $setting_value);
+                }
+            }
+        }
+
+        if (isset($settings['active'])) parent::saveSettings(['active' => $settings['active']]);
+    }
 }

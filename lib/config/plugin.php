@@ -3,7 +3,7 @@
 return [
     'name' => "Без звонка",
     'description' => "Предоставьте возможность покупателю отказаться от звонка",
-    'version' => "1.0.1",
+    'version' => "1.0.2",
     'img' => 'img/calloff.png',
     'vendor' => 1059969,
     'frontend' => true,

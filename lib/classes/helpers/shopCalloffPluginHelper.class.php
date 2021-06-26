@@ -17,6 +17,11 @@ class shopCalloffPluginHelper
         return wa(shopCalloffPluginHelper::APP_ID)->getPlugin(shopCalloffPluginHelper::PLUGIN_ID);
     }
 
+    public static function getStorefrontCode($domain, $url)
+    {
+        return $domain === '*' && $url === '*' ? '*' : base64_encode($domain . '/' . $url);
+    }
+
     /**
      * Returns plugin settings
      *
@@ -24,9 +29,11 @@ class shopCalloffPluginHelper
      */
     public static function getSettings()
     {
-        $settings = shopCalloffPluginHelper::getPlugin()->getSettings();
+        $settings = self::getPlugin()->getSettings();
 
-        return shopCalloffPluginSettingsHelper::normalizeSettings($settings);
+        $settings = shopCalloffPluginSettingsHelper::normalizeSettings($settings, 'common');
+
+        return $settings;
     }
 
     /**
@@ -44,20 +51,23 @@ class shopCalloffPluginHelper
      *
      * @return array<string, mixed>
      */
+
     public static function getStorefrontSettings($domain = null, $url = null)
     {
-        $settings = self::getSettings();
-        $routing = wa()->getRouting();
 
-        if(empty($domain)) $domain = $routing->getDomain();
-        if(empty($url)) $url = $routing->getRoute('url');
+        if(empty($domain)) $domain = shopCalloffPluginRoutingHelper::getDomain();
+        if(empty($url)) $url = shopCalloffPluginRoutingHelper::getUrl();
 
-        $current_storefront_settings = $settings['storefronts'][$domain][$url];
-        $current_storefront_settings_active = self::toBoolean($current_storefront_settings['active']);
+        $storefront_code = self::getStorefrontCode($domain, $url);
 
-        $common_settings = $settings['storefronts']['*']['*'];
-        $common_settings_active = self::toBoolean($common_settings['active']);
-        
+        $current_storefront_settings = shopCalloffPluginSettingsHelper::model()->get($storefront_code);
+        $current_storefront_settings = shopCalloffPluginSettingsHelper::normalizeSettings($current_storefront_settings, 'storefront');
+        $current_storefront_settings_active = $current_storefront_settings['active'];
+
+        $common_settings = shopCalloffPluginSettingsHelper::model()->get('*');
+        $common_settings = shopCalloffPluginSettingsHelper::normalizeSettings($common_settings, 'storefront');
+        $common_settings_active = $common_settings['active'];
+
         if($common_settings_active && !$current_storefront_settings_active) {
             return $common_settings;
         }
@@ -72,9 +82,10 @@ class shopCalloffPluginHelper
      */
     public static function getFrontendSettings() 
     {
-        $storefront_settings = self::getStorefrontSettings();
         $storefront_domain = shopCalloffPluginRoutingHelper::getDomain();
         $storefront_url = shopCalloffPluginRoutingHelper::getUrl();
+
+        $storefront_settings = self::getStorefrontSettings($storefront_domain, $storefront_url);
 
         $session_value = wa()->getStorage()->get('shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option');
         $value = isset($session_value) ? $session_value : $storefront_settings['default_value'];

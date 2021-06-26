@@ -3,6 +3,19 @@
 class shopCalloffPluginSettingsHelper
 {
 
+    private static $model = null;
+
+    /**
+     * Returns category model instance
+     *
+     * @return shopCalloffPluginSettingsModel
+     */
+    public static function model()
+    {
+        if(!empty(self::$model)) return self::$model;
+
+        return self::$model = new shopCalloffPluginSettingsModel();
+    }
     /**
      * Returns settings structure
      *
@@ -11,8 +24,10 @@ class shopCalloffPluginSettingsHelper
     public static function getStructure() 
     {
         return [
-            new shopCalloffPluginSettingField('active', false),
-            new shopCalloffPluginStorefrontsSettingGroup('storefronts', [
+            'common' => [
+                new shopCalloffPluginSettingField('active', false),
+            ],
+            'storefront' => [
                 new shopCalloffPluginSettingField('active', false),
                 new shopCalloffPluginSettingField('default_value', 'yes'),
                 new shopCalloffPluginSettingField('display_step', 'contactinfo'),
@@ -40,7 +55,7 @@ class shopCalloffPluginSettingsHelper
                         new shopCalloffPluginSettingField('no', "<span style=\"color: rgb(204, 0, 0);\"><strong>Не перезванивать клиенту, сразу собирать заказ</strong>.</span>"),
                     ]),
                 ]),
-            ]),
+            ]
         ];
     }
 
@@ -49,11 +64,12 @@ class shopCalloffPluginSettingsHelper
      * If setting value is empty,then assign default value to setting
      *
      * @param array<string, mixed> $settings
+     * @param string $structure_type
      * @return <string, mixed>
      */
-    public static function normalizeSettings($settings)
+    public static function normalizeSettings($settings, $structure_type)
     {
-        $setting_structure = self::getStructure();
+        $setting_structure = self::getStructure()[$structure_type];
 
         $setting_group = new shopCalloffPluginSettingGroup('setting', $setting_structure);
 
