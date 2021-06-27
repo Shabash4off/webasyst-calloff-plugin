@@ -12,19 +12,20 @@ var CalloffFrontend = (function () {
      */
     CalloffFrontend = function (options) {
 
-        var self = this;
-
         if(options.selector) {
+            
+            var self = this;
+
             $(document).on('wa_order_form_changed', function () {
                 $.post('calloff/select', {storefront: options.storefront})
-                    .done(function (response) { 
+                    .done(function (response) {
+
                         var $wrapper =  $(options.selector);
                         if($wrapper.length === 0) throw new Error('Calloff Error: Can\'t find element with selector "' + options.selector + '"');
-                        console.log(response);
+
                         $wrapper.append(options.form);
 
                         options['value'] = response.data;
-
                         self.form[options.form_type](options);
                     });
             });
