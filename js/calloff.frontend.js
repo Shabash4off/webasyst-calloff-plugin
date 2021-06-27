@@ -16,7 +16,7 @@ var CalloffFrontend = (function () {
 
             var self = this;
 
-            function display(params) {
+            function display() {
                 $.post('calloff/select', {storefront: options.storefront})
                     .done(function (response) {
 
