@@ -62,11 +62,11 @@ class shopCalloffPluginHelper
 
         $current_storefront_settings = shopCalloffPluginSettingsHelper::model()->get($storefront_code);
         $current_storefront_settings = shopCalloffPluginSettingsHelper::normalizeSettings($current_storefront_settings, 'storefront');
-        $current_storefront_settings_active = $current_storefront_settings['active'];
+        $current_storefront_settings_active = self::toBoolean($current_storefront_settings['active']);
 
         $common_settings = shopCalloffPluginSettingsHelper::model()->get('*');
         $common_settings = shopCalloffPluginSettingsHelper::normalizeSettings($common_settings, 'storefront');
-        $common_settings_active = $common_settings['active'];
+        $common_settings_active = self::toBoolean($common_settings['active']);
 
         if($common_settings_active && !$current_storefront_settings_active) {
             return $common_settings;
@@ -80,15 +80,17 @@ class shopCalloffPluginHelper
      *
      * @return array<string, mixed>
      */
-    public static function getFrontendSettings() 
+    public static function getFrontendSettings($domain = null, $url = null) 
     {
-        $storefront_domain = shopCalloffPluginRoutingHelper::getDomain();
-        $storefront_url = shopCalloffPluginRoutingHelper::getUrl();
+        $storefront_domain = $domain ?: shopCalloffPluginRoutingHelper::getDomain();
+        $storefront_url = $url ?: shopCalloffPluginRoutingHelper::getUrl();
 
         $storefront_settings = self::getStorefrontSettings($storefront_domain, $storefront_url);
 
         $session_value = wa()->getStorage()->get('shop/calloff/' . $storefront_domain . '/' . $storefront_url . '/option');
         $value = isset($session_value) ? $session_value : $storefront_settings['default_value'];
+
+        $form = self::renderForm($storefront_domain, $storefront_url);
 
         return [
             'value' => $value,
@@ -96,8 +98,31 @@ class shopCalloffPluginHelper
                 'domain' => $storefront_domain,
                 'url' => $storefront_url
             ],
-            'form_type' => $storefront_settings['frontend']['form_type']
+            'form_type' => $storefront_settings['frontend']['form_type'],
+            'form' => $form,
+            'selector' => $storefront_settings['display_step'] === 'selector' ? $storefront_settings['selector'] : null 
         ];
+    }
+
+    public static function renderForm($domain = null, $url = null) 
+    {
+        $settings = shopCalloffPluginHelper::getStorefrontSettings($domain, $url);
+
+        $form_type = $settings['frontend']['form_type'];
+
+        $form_template = shopCalloffPluginHelper::render($settings['frontend']['form_template'][$form_type], [
+            'yes_option' => $settings['frontend']['option']['yes'],
+            'no_option' => $settings['frontend']['option']['no']
+        ]);
+
+        $template = shopCalloffPluginHelper::render($settings['frontend']['template'], [
+            'description' => $settings['frontend']['description'],
+            'form' => $form_template
+        ]);
+
+        $style = "<style>" . $settings['frontend']['da_css'] . "</style>";
+
+        return $style . "\n" . $template;
     }
 
     /**

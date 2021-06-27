@@ -1,7 +1,7 @@
-<div data-block="dynamic-appearance" data-id="{$storefrontId}-{$da_key}">
+<div data-block="dynamic-appearance">
 
-    <input type="hidden" name="{$app_id}_{$plugin_id}{$storefrontName}[{$da_key}][da_jss]" data-dynamic-appearance-storage value="{$storefrontSettings[{$da_key}]["da_jss"]|escape:'html'}">
-    <input type="hidden" name="{$app_id}_{$plugin_id}{$storefrontName}[{$da_key}][da_css]" data-dynamic-appearance-dist value="{$storefrontSettings[{$da_key}]["da_css"]|escape:'html'}">
+    <input type="hidden" name="{$name_prefix}[{$da_key}][da_jss]" data-dynamic-appearance-storage value="{$settings[{$da_key}]["da_jss"]|escape:'html'}">
+    <input type="hidden" name="{$name_prefix}[{$da_key}][da_css]" data-dynamic-appearance-dist value="{$settings[{$da_key}]["da_css"]|escape:'html'}">
 
     <div class="dynamic-appearance-fields">
         <h3>[`da.background`]</h3>
@@ -147,7 +147,7 @@
         <input type="hidden" data-dynamic-appearance data-selector=".calloff_plugin ul" data-property="padding-left" value="0" data-postfix="px">
     </div>
 
-    <div data-dynamic-appearance-template="{$storefrontId}-{$da_key}">
+    <div data-dynamic-appearance-template>
         {include file="./templates/`$da_template`.html"}
     </div>
 </div>

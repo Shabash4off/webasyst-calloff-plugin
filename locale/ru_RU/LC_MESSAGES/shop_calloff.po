@@ -40,10 +40,13 @@ msgid "setting.default_value.output"
 msgstr "Перезвонить, Не перезванивать"
 
 msgid "setting.display_step"
-msgstr "Отображать форму на этапе"
+msgstr "Отображение формы"
 
 msgid "setting.display_step.output"
-msgstr "Контактная информация,Подтверждение"
+msgstr "Блок контактная информация,Блок подтверждение,Отображение с помощью хелпера,Отображение с помощью селектора"
+
+msgid "setting.selector"
+msgstr "Селектор в который будет размещена форма"
 
 msgid "setting.backend_display_mode"
 msgstr "Режим отображение в бэкэнде"
@@ -225,3 +228,7 @@ msgstr "Снизу"
 
 msgid "da.left"
 msgstr "Слева"
+
+# Подсказки
+msgid "hint.display_step.helper"
+msgstr "Для отображения формы в шаблоне, используйте хелпер <code>{shopCalloffPlugin::display()}</code>"

@@ -14,30 +14,30 @@
     
         <div class="value">
             <div class="block">
-                <input type="radio" name="{$name_prefix}{$storefrontName}[frontend][form_type]" 
+                <input type="radio" name="{$name_prefix}[frontend][form_type]" 
                 value="radio" 
-                {if $storefrontSettings['frontend']['form_type'] === 'radio'}checked{/if}
-                data-radio-spoiler-trigger="da-form-{$storefrontId}">
+                {if $settings['frontend']['form_type'] === 'radio'}checked{/if}
+                data-radio-spoiler-trigger="da-form">
                 <span>[`setting.form_template.radio`]</span> 
 
-                <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-{$storefrontId}">
+                <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio">
                     <i class="icon16 notebooks" style="vertical-align: middle;"></i>
                     <b><i>[`setting.template`]</i></b>
                 </a>
             </div>
 
-            <div data-spoiler-content="form-template-radio-{$storefrontId}">
+            <div data-spoiler-content="form-template-radio">
                 <textarea class="editor" data-mode="smarty" 
-                name="{$name_prefix}{$storefrontName}[frontend][form_template][radio]"
-                >{$storefrontSettings['frontend']['form_template']['radio']|escape:"html"}</textarea>
+                name="{$name_prefix}[frontend][form_template][radio]"
+                >{$settings['frontend']['form_template']['radio']|escape:"html"}</textarea>
                 
                 <div class="block">
-                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-vars-{$storefrontId}">
+                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-radio-vars">
                         <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
                         <b><i>[`variables`]</i></b>
                     </a>
                     
-                    <div data-spoiler-content="form-template-radio-vars-{$storefrontId}">
+                    <div data-spoiler-content="form-template-radio-vars">
                         {include file="../variables/FormTemplate.html"}
                     </div>
                 </div>
@@ -46,30 +46,30 @@
 
         <div class="value">
             <div class="block">
-                <input type="radio" name="{$name_prefix}{$storefrontName}[frontend][form_type]" 
+                <input type="radio" name="{$name_prefix}[frontend][form_type]" 
                 value="checkbox"
-                {if $storefrontSettings['frontend']['form_type'] === 'checkbox'}checked{/if}
-                data-radio-spoiler-trigger="da-form-{$storefrontId}">
+                {if $settings['frontend']['form_type'] === 'checkbox'}checked{/if}
+                data-radio-spoiler-trigger="da-form">
                 <span>[`setting.form_template.checkbox`]</span>
 
-                <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-{$storefrontId}">
+                <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox">
                     <i class="icon16 notebooks" style="vertical-align: middle;"></i>
                     <b><i>[`setting.template`]</i></b>
                 </a>
             </div>
 
-            <div data-spoiler-content="form-template-checkbox-{$storefrontId}">
+            <div data-spoiler-content="form-template-checkbox">
                 <textarea class="editor" data-mode="smarty" 
-                name="{$name_prefix}{$storefrontName}[frontend][form_template][checkbox]"
-                >{$storefrontSettings['frontend']['form_template']['checkbox']|escape:"html"}</textarea>
+                name="{$name_prefix}[frontend][form_template][checkbox]"
+                >{$settings['frontend']['form_template']['checkbox']|escape:"html"}</textarea>
 
                 <div class="block">
-                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-vars-{$storefrontId}">
+                    <a href="#" class="inline-link" data-spoiler-trigger="form-template-checkbox-vars">
                         <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
                         <b><i>[`variables`]</i></b>
                     </a>
                     
-                    <div data-spoiler-content="form-template-checkbox-vars-{$storefrontId}">
+                    <div data-spoiler-content="form-template-checkbox-vars">
                         {include file="../variables/FormTemplate.html"}
                     </div>
                 </div>
@@ -78,48 +78,48 @@
     </div>
 
     {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[frontend][description]" 
+    type='redactor' name="[frontend][description]" 
     label='[`setting.description`]' 
-    value=$storefrontSettings['frontend']['description']
+    value=$settings['frontend']['description']
     title="[`title.description`]"}
 
     {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[frontend][option][yes]" 
+    type='redactor' name="[frontend][option][yes]" 
     label='[`setting.yes_option`]' 
-    value=$storefrontSettings['frontend']['option']['yes']
+    value=$settings['frontend']['option']['yes']
     title="[`title.yes_option`]"}
 
-    <div data-radio-spoiler-content="da-form-{$storefrontId}" data-radio-spoiler-value="radio">
+    <div data-radio-spoiler-content="da-form" data-radio-spoiler-value="radio">
         {include file='../../components/Field.html' 
-        type='redactor' name="`$storefrontName`[frontend][option][no]"
+        type='redactor' name="[frontend][option][no]"
         label='[`setting.no_option`]' 
-        value=$storefrontSettings['frontend']['option']['no']
+        value=$settings['frontend']['option']['no']
         title="[`title.no_option`]"}
     </div>
 
     <div class="field">
         
         <div class="name">
-            <a href="#" class="inline-link" data-spoiler-trigger="frontend-template-{$storefrontId}">
+            <a href="#" class="inline-link" data-spoiler-trigger="frontend-template">
                 <i class="icon16 notebooks" style="vertical-align: middle;"></i>
                 <b><i>[`setting.template`]</i></b>
             </a>
             <span title="[`title.frontend.template`]">[?]</span>
         </div>
 
-        <div class="value" data-spoiler-content="frontend-template-{$storefrontId}">
-            <textarea class="editor" data-mode="smarty" name="{$name_prefix}{$storefrontName}[frontend][template]"
-            >{$storefrontSettings['frontend']['template']|escape:"html"}</textarea>
+        <div class="value" data-spoiler-content="frontend-template">
+            <textarea class="editor" data-mode="smarty" name="{$name_prefix}[frontend][template]"
+            >{$settings['frontend']['template']|escape:"html"}</textarea>
         </div>
 
-        <div class="value" data-spoiler-content="frontend-template-{$storefrontId}">
+        <div class="value" data-spoiler-content="frontend-template">
             <div class="block">
-                <a href="#" class="inline-link" data-spoiler-trigger="frontend-template-vars-{$storefrontId}">
+                <a href="#" class="inline-link" data-spoiler-trigger="frontend-template-vars">
                     <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
                     <b><i>[`variables`]</i></b>
                 </a>
                 
-                <div data-spoiler-content="frontend-template-vars-{$storefrontId}">
+                <div data-spoiler-content="frontend-template-vars">
                     {include file="../variables/FrontendTemplate.html"}
                 </div>
             </div>

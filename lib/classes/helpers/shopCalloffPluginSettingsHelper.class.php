@@ -31,6 +31,7 @@ class shopCalloffPluginSettingsHelper
                 new shopCalloffPluginSettingField('active', false),
                 new shopCalloffPluginSettingField('default_value', 'yes'),
                 new shopCalloffPluginSettingField('display_step', 'contactinfo'),
+                new shopCalloffPluginSettingField('selector', ''),
                 new shopCalloffPluginSettingField('backend_display_mode', 'message'),
                 new shopCalloffPluginSettingGroup('frontend', [
                     new shopCalloffPluginSettingField('da_jss', ''),

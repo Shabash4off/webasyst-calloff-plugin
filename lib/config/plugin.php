@@ -12,6 +12,7 @@ return [
         'order_action.create' => 'orderActionCreate',
 
         'frontend_checkout' => 'frontendCheckout',
+        'frontend_order' => 'frontendOrder',
         'checkout_render_auth' => 'checkoutRenderAuth',
         'checkout_render_confirm' => 'checkoutRenderConfirm',
 

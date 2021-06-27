@@ -53,7 +53,12 @@ var CalloffSettings = (function () {
                 var $editor = $(this);
                 var editorMode = $editor.data('mode');
 
-                CodeMirror.fromTextArea(this, { mode: editorMode  })
+                var editor = CodeMirror.fromTextArea(this, { 
+                    mode: editorMode,
+                    onBlur: function () { 
+                        editor.save();             
+                   }
+                });
             });
         },
 
@@ -120,27 +125,27 @@ var CalloffSettings = (function () {
             $storefrontSelect.on('change', showActiveTabContent);
         },
 
-        // selectTab: function ($wrapper) {
-        //     var $tabSelects = $wrapper.find('[data-tab-select]');
+        selectTab: function ($wrapper) {
+            var $tabSelects = $wrapper.find('[data-tab-select]');
 
-        //     function showActiveTabContent() {
-        //         var $tabSelect = $(this);
+            function showActiveTabContent() {
+                var $tabSelect = $(this);
 
-        //         var contentBlock = $tabSelect.data('tab-select');
-        //         var $contentBlock = $wrapper.find('[data-tab-select-content-block="' + contentBlock + '"]');
+                var contentBlock = $tabSelect.data('tab-select');
+                var $contentBlock = $wrapper.find('[data-tab-select-content-block="' + contentBlock + '"]');
 
-        //         var $content = $contentBlock.find('[data-tab-select-content]');
-        //         $content.hide();
+                var $content = $contentBlock.find('[data-tab-select-content]');
+                $content.hide();
 
-        //         var selectedTabLabel = $tabSelect.find('option:selected').val();
+                var selectedTabLabel = $tabSelect.find('option:selected').val();
 
-        //         $contentBlock.find('[data-tab-select-content="'+selectedTabLabel+'"]').show();
-        //     }
+                $contentBlock.find('[data-tab-select-content="'+selectedTabLabel+'"]').show();
+            }
 
-        //     $tabSelects.each(showActiveTabContent);
+            $tabSelects.each(showActiveTabContent);
 
-        //     $tabSelects.on('change', showActiveTabContent);
-        // },
+            $tabSelects.on('change', showActiveTabContent);
+        },
 
         tooltip: function ($wrapper) {
             $wrapper.find('[title]').tooltip();
@@ -200,8 +205,6 @@ var CalloffSettings = (function () {
             $dynamicAppearanceBlocks.each(function () {
                 var $dynamicAppearanceBlock = $(this);
 
-                var id = $dynamicAppearanceBlock.data('id');
-
                 var $dynamicAppearanceInputs = $dynamicAppearanceBlock.find('[data-dynamic-appearance]');
                 var $dynamicAppearanceStorage = $dynamicAppearanceBlock.find('[data-dynamic-appearance-storage]')
                 var $dynamicAppearanceDist = $dynamicAppearanceBlock.find('[data-dynamic-appearance-dist]')
@@ -256,12 +259,12 @@ var CalloffSettings = (function () {
                 }
 
                 function injectCSS() {
-                    var css = jss.getCSS('[data-dynamic-appearance-template="' + id + '"]');
+                    var css = jss.getCSS('[data-dynamic-appearance-template]');
 
-                    var $styleEl = $('style[data-dynamic-appearance-style="' + id + '"]');
+                    var $styleEl = $('style[data-dynamic-appearance-style]');
                     if($styleEl.length === 0) {
-                        $styleEl = $('<style data-dynamic-appearance-style="' + id + '">' + css + '</style>')
-                        $wrapper.append($styleEl);
+                        $styleEl = $('<style data-dynamic-appearance-style>' + css + '</style>')
+                        $dynamicAppearanceBlock.append($styleEl);
                     } else {
                         $styleEl.html(css)
                     }

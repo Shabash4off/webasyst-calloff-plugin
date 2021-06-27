@@ -38,7 +38,7 @@ class shopCalloffPlugin extends shopPlugin
 
     public function frontendCheckout($params)
     {
-        return $this->form($params['step']);
+        return $this->form($params['step']) ?: $this->form('selector', 'checkout');
     }
 
     public function checkoutRenderAuth($params)
@@ -51,7 +51,17 @@ class shopCalloffPlugin extends shopPlugin
         return $this->form('confirmation');
     }
 
-    private function form($step)
+    public function frontendOrder()
+    {
+        return $this->form('selector');
+    }
+
+    public static function display() 
+    {
+        return shopCalloffPluginHelper::getPlugin()->form('helper');
+    }
+
+    public function form($step)
     {
         $active = shopCalloffPluginHelper::isActive();
         $settings = shopCalloffPluginHelper::getStorefrontSettings();
@@ -64,23 +74,9 @@ class shopCalloffPlugin extends shopPlugin
             
             $frontend_options = shopCalloffPluginHelper::getFrontendSettings();
 
-            $form_type = $settings['frontend']['form_type'];
+            $script = '<script id="calloff-script">$(function () { new CalloffFrontend('. json_encode($frontend_options) .') })</script>';
 
-            $form_template = shopCalloffPluginHelper::render($settings['frontend']['form_template'][$form_type], [
-                'yes_option' => $settings['frontend']['option']['yes'],
-                'no_option' => $settings['frontend']['option']['no']
-            ]);
-
-            $template = shopCalloffPluginHelper::render($settings['frontend']['template'], [
-                'description' => $settings['frontend']['description'],
-                'form' => $form_template
-            ]);
-
-            $style = "<style>" . $settings['frontend']['da_css'] . "</style>";
-
-            $script = '<script>$(function () { new CalloffFrontend('. json_encode($frontend_options) .') })</script>';
-
-            return $style . "\n" . $template . "\n" . $script;
+            return $script;            
         }
 
         return '';

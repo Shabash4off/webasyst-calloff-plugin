@@ -40,10 +40,13 @@ msgid "setting.default_value.output"
 msgstr "Yes,No"
 
 msgid "setting.display_step"
-msgstr "Display a form in a step"
+msgstr "Display form"
 
 msgid "setting.display_step.output"
-msgstr "Contact info,Confirmation"
+msgstr "Contact info block,Confirmation block,Display with helper,Display with selector"
+
+msgid "setting.selector"
+msgstr "The selector to which the form will be placed"
 
 msgid "setting.backend_display_mode"
 msgstr "Display mode in backend"
@@ -225,3 +228,7 @@ msgstr "Bottom"
 
 msgid "da.left"
 msgstr "Left"
+
+# Hint
+msgid "hint.display_step.helper"
+msgstr "To display the form in the template, use the helper <code>{shopCalloffPlugin::display()}</code>"

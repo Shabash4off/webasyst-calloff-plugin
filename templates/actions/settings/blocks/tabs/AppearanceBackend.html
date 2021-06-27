@@ -3,48 +3,48 @@
     {$outputs = explode(',', _wp('setting.backend_display_mode.output'))}
     {include file='../../components/Field.html' 
     type='select' 
-    name="`$storefrontName`[backend_display_mode]" 
+    name="[backend_display_mode]" 
     label='[`setting.backend_display_mode`]' 
-    value=$storefrontSettings['backend_display_mode']
+    value=$settings['backend_display_mode']
     option_values=['message', 'icon']
     options_outputs=$outputs
     title="[`title.backend_display_mode`]"}
     
     {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[backend][answer][yes]" 
+    type='redactor' name="[backend][answer][yes]" 
     label='[`setting.yes_answer`]' 
-    value=$storefrontSettings['backend']['answer']['yes']
+    value=$settings['backend']['answer']['yes']
     title="[`title.yes_answer`]"}
 
     {include file='../../components/Field.html' 
-    type='redactor' name="`$storefrontName`[backend][answer][no]"
+    type='redactor' name="[backend][answer][no]"
     label='[`setting.no_answer`]' 
-    value=$storefrontSettings['backend']['answer']['no']
+    value=$settings['backend']['answer']['no']
     title="[`title.no_answer`]"}
 
     <div class="field">
         
         <div class="name">
-            <a href="#" class="inline-link" data-spoiler-trigger="backend-template-{$storefrontId}">
+            <a href="#" class="inline-link" data-spoiler-trigger="backend-template">
                 <i class="icon16 notebooks" style="vertical-align: middle;"></i>
                 <b><i>[`setting.template`]</i></b>
             </a>
             <span title="[`title.backend.template`]">[?]</span>
         </div>
 
-        <div class="value" data-spoiler-content="backend-template-{$storefrontId}">
-            <textarea class="editor" data-mode="smarty" name="{$name_prefix}{$storefrontName}[backend][template]"
-            >{$storefrontSettings['backend']['template']|escape:"html"}</textarea>
+        <div class="value" data-spoiler-content="backend-template">
+            <textarea class="editor" data-mode="smarty" name="{$name_prefix}[backend][template]"
+            >{$settings['backend']['template']|escape:"html"}</textarea>
         </div>
 
-        <div class="value" data-spoiler-content="backend-template-{$storefrontId}">
+        <div class="value" data-spoiler-content="backend-template">
             <div class="block">
-                <a href="#" class="inline-link" data-spoiler-trigger="backend-template-vars-{$storefrontId}">
+                <a href="#" class="inline-link" data-spoiler-trigger="backend-template-vars">
                     <i class="icon16 light-bulb" style="vertical-align: middle;"></i>
                     <b><i>[`variables`]</i></b>
                 </a>
                 
-                <div data-spoiler-content="backend-template-vars-{$storefrontId}">
+                <div data-spoiler-content="backend-template-vars">
                     {include file="../variables/BackendTemplate.html"}
                 </div>
             </div>
