@@ -231,4 +231,4 @@ msgstr "Left"
 
 # Hint
 msgid "hint.display_step.helper"
-msgstr "To display the form in the template, use the helper <code>{shopCalloffPlugin::display()}</code>"
+msgstr "To display the form in the cart, use the helper <code>{shopCalloffPlugin::display()}</code>"

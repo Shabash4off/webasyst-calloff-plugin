@@ -38,7 +38,7 @@ class shopCalloffPlugin extends shopPlugin
 
     public function frontendCheckout($params)
     {
-        return $this->form($params['step']) ?: $this->form('selector', 'checkout');
+        return $this->form($params['step']) ?: $this->form('selector');
     }
 
     public function checkoutRenderAuth($params)

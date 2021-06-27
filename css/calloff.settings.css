@@ -94,6 +94,11 @@
     max-width: 844px;
 }
 
+#calloff .alert_info p,
+#calloff .alert_warn p {
+    margin-bottom: 0;
+}
+
 #calloff .CodeMirror {
     border: 1px solid silver;
     max-width: 800px;

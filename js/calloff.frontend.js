@@ -13,21 +13,29 @@ var CalloffFrontend = (function () {
     CalloffFrontend = function (options) {
 
         if(options.selector) {
-            
+
             var self = this;
 
-            $(document).on('wa_order_form_changed', function () {
+            function display(params) {
                 $.post('calloff/select', {storefront: options.storefront})
                     .done(function (response) {
 
                         var $wrapper =  $(options.selector);
-                        if($wrapper.length === 0) throw new Error('Calloff Error: Can\'t find element with selector "' + options.selector + '"');
+                        if($wrapper.length === 0) return;
+
+                        $('.calloff_plugin').remove();
 
                         $wrapper.append(options.form);
 
                         options['value'] = response.data;
                         self.form[options.form_type](options);
                     });
+            }
+
+            display()
+
+            $(document).on('wa_order_form_changed', function () {
+                display()
             });
         } else {
             $('#calloff-script').before(options.form);

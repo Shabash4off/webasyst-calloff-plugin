@@ -231,4 +231,4 @@ msgstr "Слева"
 
 # Подсказки
 msgid "hint.display_step.helper"
-msgstr "Для отображения формы в шаблоне, используйте хелпер <code>{shopCalloffPlugin::display()}</code>"
+msgstr "Для отображения формы в корзине, используйте хелпер <code>{shopCalloffPlugin::display()}</code>"
