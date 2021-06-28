@@ -133,6 +133,9 @@ msgstr "General form template."
 msgid "title.backend.template"
 msgstr "Backend message template."
 
+msgid "title.selector"
+msgstr "Placement is possible only on checkout and order pages"
+
 # Other
 msgid "answer"
 msgstr "User answer."

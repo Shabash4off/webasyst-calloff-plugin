@@ -133,6 +133,9 @@ msgstr "Общий шаблон формы."
 msgid "title.backend.template"
 msgstr "Шаблон сообщения выводимого в бэкэнде."
 
+msgid "title.selector"
+msgstr "Размещение возможно только на страницах checkout и order"
+
 # Остальное
 msgid "answer"
 msgstr "Вариант выбранный пользователем."

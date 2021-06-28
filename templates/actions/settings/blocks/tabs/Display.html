@@ -33,14 +33,18 @@
     <div class="field" data-tab-select-content-block="display-step">
         <div class="value" data-tab-select-content="helper">
             {literal}
-            <div class="alert_info">
+            <div class="alert_info" style="max-width: fit-content;">
                 <p>[`hint.display_step.helper`]</p>
             </div>
             {/literal}
         </div>
 
         <div data-tab-select-content="selector">
-            <div class="name">[`setting.selector`]</div>
+
+            <div class="name">
+                [`setting.selector`]
+                <span title="[`title.selector`]">[?]</span>
+            </div>
 
             <div class="value">
                 <input 
