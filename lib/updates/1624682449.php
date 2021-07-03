@@ -71,3 +71,7 @@ if(!empty($storefronts)) {
     $wa_settings_model->del($app_id, 'storefronts');
 
 }
+
+// Delete old files
+waFiles::delete('wa-apps/shop/plugins/calloff/lib/classes/settings/groups/shopCalloffPluginStorefrontsSettingGroup.class.php', true);
+waFiles::delete('wa-apps/shop/plugins/calloff/templates/actions/settings/components/Storefront.html', true);
